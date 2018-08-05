@@ -5,6 +5,6 @@
 
 
 ## Anggota Kelompok
-**Reynaldo Fang**
-**Levina Khomulia**
-**Richard Cenderawan**
+* **Reynaldo Fang**
+* **Levina Khomulia**
+* **Richard Cenderawan**
