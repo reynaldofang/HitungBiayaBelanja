@@ -49,3 +49,5 @@
 - Teken Tombol Submit , Maka List Barang yang kamu mau beli akan ada di DataGriedView dan Auto Menghitung 
   Quantity , Harga dan Pajak tersebut.
 - Saat List Barang Sudah di DataGridView Maka Akan Auto Menghitung Total Harga.
+
+**Catatan : User harus mengganti data source tempat database berada (di Class Setting) agar dapat dikoneksikan dengan Database.**
