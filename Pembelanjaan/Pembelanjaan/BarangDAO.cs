@@ -10,7 +10,7 @@ namespace Pembelanjaan
     public class BarangDAO : IDisposable
     {
         SqlConnection _conn = null;
-        string _kode = string.Empty;
+        
 
         public BarangDAO()
         {
@@ -27,40 +27,47 @@ namespace Pembelanjaan
 
         public List<Barang> GetAllDataBarang()
         {
-            List<Barang> listData = null;
+            List<Barang> listData = new List<Barang>();
 
             try
             {
-                using (SqlCommand cmd = new SqlCommand())
-                {
-                    cmd.Connection = _conn;
-                    cmd.CommandText = @"select * from barang order by kode";
+                string sqlstring = @"select * from Barang";
 
-                    using (SqlDataReader reader = cmd.ExecuteReader())
+                SqlCommand cmd = new SqlCommand(sqlstring, _conn);
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+
+                
+                    while (reader.Read())
                     {
-                        if (reader.HasRows)
+                        string kode = reader["Kode"].ToString();
+                        string nama = reader["Nama"].ToString();
+                        decimal harga = Decimal.Parse(reader["Harga"].ToString());
+                        int quantity = int.Parse(reader["Quantity"].ToString());
+                        string pjk = reader["Pajak"].ToString();
+
+                        listData.Add(new Barang
                         {
-                            listData = new List<Barang>();
-                            while (reader.Read())
-                            {
-                                listData.Add(new Barang
-                                {
-                                    Kode = reader["Kode"].ToString(),
-                                    Nama = reader["Nama"].ToString(),                                   
-                                    Harga = Convert.ToDecimal(reader["Harga"].ToString()),
-                                    Quantity = Convert.ToInt32(reader["Quantity"].ToString()),
-                                    Pajak = reader["Pajak"].ToString()
-                                });
-                            }
-                        }
+                            Kode = kode,
+                            Nama = nama,
+                            Quantity = quantity,
+                            Harga = harga,
+                            Pajak = pjk
+                        });
+
                     }
                 }
+                reader.Close();
+                cmd.Dispose();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                throw ex;
             }
+
+
             return listData;
         }
 
@@ -99,7 +106,7 @@ namespace Pembelanjaan
             {
                 trans = _conn.BeginTransaction();
                 string sqlString =
-                    @"update barang set nama = @nama, harga = @harga, quantity = @quantity , pajak = @pajak where kode = @kode";
+                    @"update barang set kode = kode, nama = @nama, harga = @harga, quantity = @quantity , pajak = @pajak where kode = @kode";
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = _conn;
@@ -202,17 +209,17 @@ namespace Pembelanjaan
             Barang barang = null;
             try
             {
+                string sqlString = @"select * from barang where kode = @kode";
                 using (SqlCommand cmd = new SqlCommand())
                 {
-                    cmd.Connection = _conn;
-                    cmd.CommandText = @"select * from barang where kode = @kode";
+
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@kode", kode);
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        if (reader.HasRows)
-                        {
+                     //   if (reader.HasRows)
+                     //   {
                             if (reader.Read())
                             {
                                 barang = new Barang
@@ -223,7 +230,7 @@ namespace Pembelanjaan
                                     Harga = Convert.ToDecimal(reader["harga"].ToString()),
                                     Pajak = reader["pajak"].ToString(),
                                 };
-                            }
+                     //  }
                         }
 
                     }

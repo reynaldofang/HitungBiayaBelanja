@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Barang.cs" />
     <Compile Include="BarangDAO.cs" />
+    <Compile Include="BarangDAOList.cs" />
     <Compile Include="Belanja.cs" />
     <Compile Include="FormEditBarang.cs">
       <SubType>Form</SubType>

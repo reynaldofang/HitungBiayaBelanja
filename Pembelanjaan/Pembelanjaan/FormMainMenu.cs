@@ -12,30 +12,21 @@ namespace Pembelanjaan
 {
     public partial class FormMainMenu : Form
     {
+        List<Barang> listBrg = null;
+        List<Belanja> listBelanja = null;
         public FormMainMenu()
         {
             InitializeComponent();
             this.dataGridView1.AutoGenerateColumns = false;
         }
 
-        private void btnedit_Click(object sender, EventArgs e)
-        {
-            if (this.dataGridView1.SelectedRows.Count > 0)
-            {
-                FormEditBarang form = new FormEditBarang(this.dataGridView1.SelectedRows[0].Cells[0].Value.ToString().Trim());
-                if (form.Run(form))
-                {
-                    FormMainMenu_Load(null, null);  
-                }
-            }
-        }
-
         private void QueryData(Barang barang = null)
         {
-            List<Barang> listData = null;
+            
             try
             {
                 this.dataGridView1.DataSource = null;
+                List<Barang> listData = null;
                 using (var daoBarang = new BarangDAO())
                 {
                     if (barang == null)
@@ -65,7 +56,29 @@ namespace Pembelanjaan
 
         private void FormMainMenu_Load(object sender, EventArgs e)
         {
-            QueryData();
+            
+            listBelanja = new List<Belanja>();
+            
+            try
+            {
+                using (var barangdao = new BarangDAO())
+                {
+                    listBrg = barangdao.GetAllDataBarang();
+                }
+
+                dataGridView1.DataSource = listBrg;
+                dataGridView1.Columns[0].DataPropertyName = "Kode";
+                dataGridView1.Columns[1].DataPropertyName = "Nama";
+                dataGridView1.Columns[2].DataPropertyName = "Quantity";
+                dataGridView1.Columns[3].DataPropertyName = "Harga";
+                dataGridView1.Columns[4].DataPropertyName = "Pajak";
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
         private void btnhitung_Click(object sender, EventArgs e)
@@ -85,7 +98,7 @@ namespace Pembelanjaan
         {
             try
             {
-                DialogResult dr = MessageBox.Show("Apa Anda Yakin?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                DialogResult dr = MessageBox.Show("Apa Anda Yakin Ingin Menghapus Data Tersebut?", "Hapus Data", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 switch (dr)
                 {
                     case DialogResult.Yes:

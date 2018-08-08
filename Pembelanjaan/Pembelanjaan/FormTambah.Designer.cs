@@ -32,7 +32,6 @@
             this.btnsimpan = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.txtpajak = new System.Windows.Forms.TextBox();
-            this.txtharga = new System.Windows.Forms.TextBox();
             this.txtjumlah = new System.Windows.Forms.TextBox();
             this.txtnama = new System.Windows.Forms.TextBox();
             this.txtkode = new System.Windows.Forms.TextBox();
@@ -45,6 +44,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txtharga = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -94,14 +94,6 @@
             this.txtpajak.Name = "txtpajak";
             this.txtpajak.Size = new System.Drawing.Size(75, 35);
             this.txtpajak.TabIndex = 99;
-            // 
-            // txtharga
-            // 
-            this.txtharga.Location = new System.Drawing.Point(322, 475);
-            this.txtharga.Multiline = true;
-            this.txtharga.Name = "txtharga";
-            this.txtharga.Size = new System.Drawing.Size(188, 35);
-            this.txtharga.TabIndex = 98;
             // 
             // txtjumlah
             // 
@@ -195,9 +187,9 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label1.Location = new System.Drawing.Point(73, 218);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(526, 32);
+            this.label1.Size = new System.Drawing.Size(573, 32);
             this.label1.TabIndex = 88;
-            this.label1.Text = "Silahkan Edit Data Barang Anda Disini";
+            this.label1.Text = "Silahkan Tambah Data Barang Anda Disini";
             // 
             // label10
             // 
@@ -233,6 +225,14 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 86;
             this.pictureBox1.TabStop = false;
+            // 
+            // txtharga
+            // 
+            this.txtharga.Location = new System.Drawing.Point(322, 475);
+            this.txtharga.Multiline = true;
+            this.txtharga.Name = "txtharga";
+            this.txtharga.Size = new System.Drawing.Size(188, 35);
+            this.txtharga.TabIndex = 98;
             // 
             // FormTambah
             // 
@@ -272,7 +272,6 @@
         private System.Windows.Forms.Button btnsimpan;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtpajak;
-        private System.Windows.Forms.TextBox txtharga;
         private System.Windows.Forms.TextBox txtjumlah;
         private System.Windows.Forms.TextBox txtnama;
         private System.Windows.Forms.TextBox txtkode;
@@ -285,5 +284,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox txtharga;
     }
 }

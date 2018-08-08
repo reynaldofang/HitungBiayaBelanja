@@ -36,7 +36,6 @@
             this.Pajak = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnhitung = new System.Windows.Forms.Button();
             this.btnhapus = new System.Windows.Forms.Button();
-            this.btnedit = new System.Windows.Forms.Button();
             this.btntambah = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -92,7 +91,7 @@
             this.btnhitung.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnhitung.Font = new System.Drawing.Font("Maiandra GD", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnhitung.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnhitung.Location = new System.Drawing.Point(524, 237);
+            this.btnhitung.Location = new System.Drawing.Point(472, 237);
             this.btnhitung.Name = "btnhitung";
             this.btnhitung.Size = new System.Drawing.Size(102, 48);
             this.btnhitung.TabIndex = 70;
@@ -105,7 +104,7 @@
             this.btnhapus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnhapus.Font = new System.Drawing.Font("Maiandra GD", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnhapus.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnhapus.Location = new System.Drawing.Point(373, 237);
+            this.btnhapus.Location = new System.Drawing.Point(296, 237);
             this.btnhapus.Name = "btnhapus";
             this.btnhapus.Size = new System.Drawing.Size(103, 48);
             this.btnhapus.TabIndex = 69;
@@ -113,25 +112,12 @@
             this.btnhapus.UseVisualStyleBackColor = false;
             this.btnhapus.Click += new System.EventHandler(this.btnhapus_Click);
             // 
-            // btnedit
-            // 
-            this.btnedit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnedit.Font = new System.Drawing.Font("Maiandra GD", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnedit.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnedit.Location = new System.Drawing.Point(221, 237);
-            this.btnedit.Name = "btnedit";
-            this.btnedit.Size = new System.Drawing.Size(113, 48);
-            this.btnedit.TabIndex = 68;
-            this.btnedit.Text = "Edit";
-            this.btnedit.UseVisualStyleBackColor = false;
-            this.btnedit.Click += new System.EventHandler(this.btnedit_Click);
-            // 
             // btntambah
             // 
             this.btntambah.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btntambah.Font = new System.Drawing.Font("Maiandra GD", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btntambah.ForeColor = System.Drawing.SystemColors.Control;
-            this.btntambah.Location = new System.Drawing.Point(79, 237);
+            this.btntambah.Location = new System.Drawing.Point(131, 237);
             this.btntambah.Name = "btntambah";
             this.btntambah.Size = new System.Drawing.Size(110, 48);
             this.btntambah.TabIndex = 67;
@@ -209,7 +195,6 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnhitung);
             this.Controls.Add(this.btnhapus);
-            this.Controls.Add(this.btnedit);
             this.Controls.Add(this.btntambah);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.pictureBox1);
@@ -232,7 +217,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnhitung;
         private System.Windows.Forms.Button btnhapus;
-        private System.Windows.Forms.Button btnedit;
         private System.Windows.Forms.Button btntambah;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.PictureBox pictureBox1;

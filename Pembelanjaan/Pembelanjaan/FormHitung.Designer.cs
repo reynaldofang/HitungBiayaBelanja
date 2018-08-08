@@ -159,6 +159,7 @@
             // 
             // txtjumlah
             // 
+            this.txtjumlah.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtjumlah.Location = new System.Drawing.Point(377, 392);
             this.txtjumlah.Multiline = true;
             this.txtjumlah.Name = "txtjumlah";
@@ -166,6 +167,7 @@
             this.txtjumlah.Size = new System.Drawing.Size(49, 35);
             this.txtjumlah.TabIndex = 96;
             this.txtjumlah.Text = "0";
+            this.txtjumlah.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtnama
             // 

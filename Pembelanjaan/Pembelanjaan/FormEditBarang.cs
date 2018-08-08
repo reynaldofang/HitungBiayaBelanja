@@ -12,8 +12,11 @@ namespace Pembelanjaan
 {
     public partial class FormEditBarang : Form
     {
+
         bool _result = false;
+
         string _kode = string.Empty;
+
         public bool Run(FormEditBarang form)
         {
             form.ShowDialog();
@@ -31,15 +34,19 @@ namespace Pembelanjaan
         {
             try
             {
-                Barang barang = new BarangDAO().GetDataBarangByKode(_kode);
-                if (barang != null)
+                using (var dao = new BarangDAO())
                 {
-                    this.txtkode.Text = barang.Kode;
-                    this.txtnama.Text = barang.Nama;
-                    this.txtjumlah.Text = Convert.ToInt32(barang.Quantity).ToString();
-                    this.txtharga.Text = Convert.ToDecimal(barang.Harga).ToString();
-                    this.txtpajak.Text = barang.Pajak;
+                    Barang barang = dao.GetDataBarangByKode(_kode);
+                    if (barang != null)
+                    {
+                        this.txtkode.Text = barang.Kode;
+                        this.txtnama.Text = barang.Nama;
+                        this.txtjumlah.Text = Convert.ToInt32(barang.Quantity).ToString();
+                        this.txtharga.Text = Convert.ToDecimal(barang.Harga).ToString();
+                        this.txtpajak.Text = barang.Pajak;
+                    }
                 }
+
             }
             catch (Exception ex)
             {
@@ -82,7 +89,7 @@ namespace Pembelanjaan
                         Kode = this.txtkode.Text.Trim(),
                         Nama = this.txtnama.Text.Trim(),
                         Quantity = int.Parse(this.txtjumlah.Text.Trim()),
-                        Harga = Decimal.Parse(this.txtharga.Text.Trim()),                     
+                        Harga = Decimal.Parse(this.txtharga.Text.Trim()),
                         Pajak = this.txtpajak.Text.Trim()
                     };
                     _result = new BarangDAO().Update(barang) > 0;
