@@ -15,6 +15,100 @@ namespace Pembelanjaan
         public FormMainMenu()
         {
             InitializeComponent();
+            this.dataGridView1.AutoGenerateColumns = false;
+        }
+
+        private void btnedit_Click(object sender, EventArgs e)
+        {
+            if (this.dataGridView1.SelectedRows.Count > 0)
+            {
+                FormEditBarang form = new FormEditBarang(this.dataGridView1.SelectedRows[0].Cells[0].Value.ToString().Trim());
+                if (form.Run(form))
+                {
+                    FormMainMenu_Load(null, null);  
+                }
+            }
+        }
+
+        private void QueryData(Barang barang = null)
+        {
+            List<Barang> listData = null;
+            try
+            {
+                this.dataGridView1.DataSource = null;
+                using (var daoBarang = new BarangDAO())
+                {
+                    if (barang == null)
+                    {
+                        listData = daoBarang.GetAllDataBarang();
+                    }
+                    else
+                    {
+                        listData = daoBarang.QueryData(barang);
+                    }
+                }
+                if (listData != null)
+                {
+                    this.dataGridView1.DataSource = listData;
+                    this.dataGridView1.Columns[0].DataPropertyName = nameof(Barang.Kode);
+                    this.dataGridView1.Columns[1].DataPropertyName = nameof(Barang.Nama);
+                    this.dataGridView1.Columns[2].DataPropertyName = nameof(Barang.Quantity);
+                    this.dataGridView1.Columns[3].DataPropertyName = nameof(Barang.Harga);
+                    this.dataGridView1.Columns[4].DataPropertyName = nameof(Barang.Pajak);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void FormMainMenu_Load(object sender, EventArgs e)
+        {
+            QueryData();
+        }
+
+        private void btnhitung_Click(object sender, EventArgs e)
+        {
+            FormHitung form = new FormHitung();
+            form.Show();
+        }
+
+        private void btntambah_Click(object sender, EventArgs e)
+        {
+            
+            FormTambah form = new FormTambah();
+            form.Show();
+        }
+
+        private void btnhapus_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult dr = MessageBox.Show("Apa Anda Yakin?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                switch (dr)
+                {
+                    case DialogResult.Yes:
+                        using (var barangdao = new BarangDAO())
+                        {
+                            barangdao.Delete(dataGridView1.CurrentCell.Value.ToString());
+                        }
+                        MessageBox.Show("Barang berhasil dihapus!", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        break;
+                    case DialogResult.No:
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            FormMainMenu_Load(null, null);
         }
     }
 }

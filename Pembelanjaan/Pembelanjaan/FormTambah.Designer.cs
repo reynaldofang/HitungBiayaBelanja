@@ -60,6 +60,7 @@
             this.btnbatal.TabIndex = 102;
             this.btnbatal.Text = "BATAL";
             this.btnbatal.UseVisualStyleBackColor = false;
+            this.btnbatal.Click += new System.EventHandler(this.btnbatal_Click);
             // 
             // btnsimpan
             // 
@@ -72,6 +73,7 @@
             this.btnsimpan.TabIndex = 101;
             this.btnsimpan.Text = "SIMPAN";
             this.btnsimpan.UseVisualStyleBackColor = false;
+            this.btnsimpan.Click += new System.EventHandler(this.btnsimpan_Click);
             // 
             // label7
             // 
@@ -122,7 +124,6 @@
             this.txtkode.Location = new System.Drawing.Point(322, 298);
             this.txtkode.Multiline = true;
             this.txtkode.Name = "txtkode";
-            this.txtkode.ReadOnly = true;
             this.txtkode.Size = new System.Drawing.Size(212, 35);
             this.txtkode.TabIndex = 95;
             // 
@@ -215,7 +216,7 @@
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.pictureBox2.Image = global::Pembelanjaan.Properties.Resources.smiley_PNG189;
-            this.pictureBox2.Location = new System.Drawing.Point(568, 202);
+            this.pictureBox2.Location = new System.Drawing.Point(605, 218);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(71, 48);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

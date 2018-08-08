@@ -47,6 +47,13 @@
   <ItemGroup>
     <Compile Include="Barang.cs" />
     <Compile Include="BarangDAO.cs" />
+    <Compile Include="Belanja.cs" />
+    <Compile Include="FormEditBarang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEditBarang.Designer.cs">
+      <DependentUpon>FormEditBarang.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormHitung.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,16 +72,11 @@
     <Compile Include="FormTambah.Designer.cs">
       <DependentUpon>FormTambah.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormEdit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmEdit.Designer.cs">
-      <DependentUpon>FormEdit.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormEdit.resx">
-      <DependentUpon>FormEdit.cs</DependentUpon>
+    <Compile Include="Setting.cs" />
+    <EmbeddedResource Include="FormEditBarang.resx">
+      <DependentUpon>FormEditBarang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormHitung.resx">
       <DependentUpon>FormHitung.cs</DependentUpon>
@@ -84,9 +86,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormTambah.resx">
       <DependentUpon>FormTambah.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmEdit.resx">
-      <DependentUpon>FormEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
